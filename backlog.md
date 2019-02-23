@@ -1,0 +1,13 @@
+- [ ] add static routes
+- [ ] add linting to ci
+- [ ] scrape candidate summary from wikipedia
+- [ ] dem/gop icons on tab bar
+- [ ] favicon
+- [ ] have dem/gop one one page and store selection in localstorage
+- [ ] better desktop view
+- [ ] social media links
+- [ ] show candidate logo
+- [ ] more candidate data
+- [ ] randomize candidates
+
+- [x] deploy on merge

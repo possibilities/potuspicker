@@ -1,0 +1,8 @@
+{
+  "version": 2,
+  "name": "potuspicker-production",
+  "alias": "potuspicker.com",
+  "builds": [
+    { "src": "package.json", "use": "@now/static-build" }
+  ]
+}

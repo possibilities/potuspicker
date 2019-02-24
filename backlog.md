@@ -1,4 +1,4 @@
-- [ ] add static routes
+- [ ] use router hoc so we can use imperative preload
 - [ ] add linting to ci
 - [ ] scrape candidate summary from wikipedia
 - [ ] dem/gop icons on tab bar
@@ -9,5 +9,7 @@
 - [ ] show candidate logo
 - [ ] more candidate data
 - [ ] randomize candidates
+- [ ] add updated stamp
 
+- [x] add static routes
 - [x] deploy on merge

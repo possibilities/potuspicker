@@ -47,20 +47,23 @@ const Candidate = ({ classes, party, id }) => {
     <Dialog
       open
       fullScreen
-      onClose={() => Router.push({
-        pathname: '/party',
-        query: { party }
-      })}>
+      onClose={() => Router.push(
+        {
+          pathname: '/party',
+          query: { party }
+        },
+        `/${party}`
+      )}>
       <AppBar
         color='default'
         className={classes.appBar}>
         <Toolbar>
           <IconButton
             color='inherit'
-            onClick={() => Router.push({
-              pathname: '/party',
-              query: { party }
-            })}>
+            onClick={() => Router.push(
+              { pathname: '/party', query: { party } },
+              `/${party}`
+            )}>
             <CloseIcon />
           </IconButton>
           <Typography

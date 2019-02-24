@@ -34,10 +34,10 @@ const Party = ({ classes, party }) => {
           variant={isSmallScreen ? 'fullWidth' : 'standard'}
           textColor='primary'
           indicatorColor='primary'
-          onChange={(e, party) => Router.push({
-            query: { party },
-            pathname: '/party'
-          })}>
+          onChange={(e, party) => Router.push(
+            { query: { party }, pathname: '/party' },
+            `/${party}`
+          )}>
           <Tab label='Democratic' value='democratic' />
           <Tab label='Republican' value='republican' />
         </Tabs>
@@ -45,10 +45,13 @@ const Party = ({ classes, party }) => {
       <Fragment>
         <List component='nav'>
           {candidates[party].map(candidate => (
-            <ListItem key={candidate.id} button onClick={() => Router.push({
-              pathname: '/candidate',
-              query: { party, id: candidate.id }
-            })}>
+            <ListItem key={candidate.id} button onClick={() => Router.push(
+              {
+                pathname: '/candidate',
+                query: { party, id: candidate.id }
+              },
+              `/${party}/${candidate.id}`
+            )}>
               <ListItemAvatar>
                 <Avatar
                   alt={candidate.name}

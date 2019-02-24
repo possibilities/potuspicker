@@ -26,6 +26,17 @@ jobs:
             - persist_to_workspace:
                 root: .
                 paths: .
+    test:
+        <<: *defaults
+        steps:
+            - attach_workspace:
+                at: ~/tmp/circlci-now
+            - run:
+                name: Yarn Install
+                command: yarn install
+            - run:
+                name: Run tests
+                command: yarn test
     deploy:
         <<: *defaults
         steps:
@@ -50,9 +61,12 @@ jobs:
                     fi
 workflows:
     version: 2
-    checkout-and-deploy:
+    test-deploy-purge:
         jobs:
             - checkout
-            - deploy:
+            - test:
                 requires:
                     - checkout
+            - deploy:
+                requires:
+                    - test

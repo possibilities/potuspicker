@@ -26,7 +26,7 @@ const styles = theme => ({
 })
 
 const formatDate = birthdate =>
-  strftime('%B %d, %Y', new Date(birthdate))
+  strftime('%B %e, %Y', new Date(birthdate))
 
 const getAge = birthdate => {
   const ageDifferenceMs = Date.now() - new Date(birthdate).getTime()
@@ -35,7 +35,7 @@ const getAge = birthdate => {
 }
 
 const displayBirthdate = candidate =>
-  `${formatDate(candidate.birthdate)} (age ${getAge(candidate.birthdate)})`
+  `${formatDate(candidate.birthDate)} (age ${getAge(candidate.birthDate)})`
 
 const goToUrl = url => () => {
   window.location = url
@@ -70,14 +70,19 @@ const Candidate = ({ classes, party, id }) => {
             variant='h6'
             color='inherit'
             className={classes.flex}>
-            {candidate.name}
+            {candidate.fullName}
           </Typography>
           <Avatar
-            alt={candidate.name}
+            alt={candidate.fullName}
             src={candidate.image} />
         </Toolbar>
       </AppBar>
       <List className={classes.list}>
+        <ListItem>
+          <ListItemText
+            primary='Summary'
+            secondary={<span dangerouslySetInnerHTML={{ __html: candidate.wikipediaBio }} />} />
+        </ListItem>
         <ListItem>
           <ListItemText
             primary='Home state'
@@ -91,7 +96,7 @@ const Candidate = ({ classes, party, id }) => {
         <ListItem>
           <ListItemText
             primary='Birthplace'
-            secondary={candidate.birthplace} />
+            secondary={candidate.birthPlace} />
         </ListItem>
         <Divider />
         <ListItem
@@ -104,10 +109,10 @@ const Candidate = ({ classes, party, id }) => {
         <Divider />
         <ListItem
           button
-          onClick={goToUrl(candidate.wikipediaBioUrl)}>
+          onClick={goToUrl(candidate.wikipediaUrl)}>
           <ListItemText
             primary='Wikipedia'
-            secondary={candidate.wikipediaBioUrl} />
+            secondary={candidate.wikipediaUrl} />
         </ListItem>
       </List>
     </Dialog>

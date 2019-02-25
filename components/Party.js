@@ -54,12 +54,12 @@ const Party = ({ classes, party }) => {
             )}>
               <ListItemAvatar>
                 <Avatar
-                  alt={candidate.name}
+                  alt={candidate.fullName}
                   src={candidate.image} />
               </ListItemAvatar>
               <ListItemText
                 inset
-                primary={candidate.name}
+                primary={candidate.fullName}
                 secondary={candidate.homeState}
               />
             </ListItem>
